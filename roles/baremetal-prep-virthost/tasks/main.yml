@@ -8,7 +8,7 @@
 - name: wait for  script file to exist
   wait_for: path="{{ working_dir }}/add-provisioning-interface.sh"
 
-- name: Add provisioning interface to the "brovc" bridge
-  become: true
-  shell: >
-    "{{ working_dir }}"/add-provisioning-interface.sh
+#- name: Add provisioning interface to the "brovc" bridge
+#  become: true
+#  shell: >
+#    "{{ working_dir }}"/add-provisioning-interface.sh
