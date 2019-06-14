@@ -107,7 +107,7 @@
       set_fact:
         to_build: true
         cacheable: true
-      when: zuul.job is defined and "'periodic' in zuul.job"
+      when: zuul is defined and "'periodic' in zuul.job"
 
     - include_role:
         name: build-test-packages
