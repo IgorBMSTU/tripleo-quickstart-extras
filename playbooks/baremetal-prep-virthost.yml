@@ -140,6 +140,7 @@
         name: repo-setup
       vars:
         repo_inject_image_path: "/home/{{ undercloud_user }}/overcloud-full.qcow2"
+        libguestfs_mode: true
         repo_run_live: false
       when: not to_build|bool
 
