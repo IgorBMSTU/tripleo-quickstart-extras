@@ -86,6 +86,23 @@ TYPE=Ethernet
 BOOTPROTO=static
 IPADDR={{ network.address }}
 NETMASK={{ network.netmask }}
+OVS_BRIDGE={{ network.ovs_bridge }}
+EOF'
+
+{% elif network.device_type is defined and network.device_type == 'VLAN' %}
+
+sudo bash -c 'cat <<EOF > /etc/sysconfig/network-scripts/ifcfg-{{ network.device_name }}
+BROWSER_ONLY=no
+IPV4_FAILURE_FATAL=no
+DEFROUTE=yes
+DEVICE={{ network.device_name }}
+ONBOOT=yes
+TYPE=Vlan
+BOOTPROTO=static
+IPADDR={{ network.address }}
+NETMASK={{ network.netmask }}
+OVS_BRIDGE={{ network.ovs_bridge }}
+VLAN=yes
 EOF'
 
 {% if overcloud_ipv6|bool %}
